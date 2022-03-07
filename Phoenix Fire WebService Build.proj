@@ -1,0 +1,176 @@
+<Project DefaultTarget="Packaging" ToolsVersion="4.0.30319" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+			<DeployFolder>$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFireWebService</DeployFolder>
+			<TestingFolder>$(MSBuildProjectDirectory)\..\Deployment\Testing\PhoenixFireWebService</TestingFolder>
+			<MyAssemblySearchPaths>
+        $(DeployFolder)\;
+        $(MSBuildProjectDirectory)\..\DevBin\;
+        $(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\;
+        $(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\;
+        $(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\;
+        $(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\;
+        $(MSBuildProjectDirectory)\..\Deployment\Binaries\KGIS\;
+        $(MSBuildProjectDirectory)\..\DevBin\Infragistics v 14.1\;
+        $(MSBuildToolsPath);
+        $(MSBuildToolsPath)\WPF;
+        {GAC};
+        $(AssemblySearchPaths)
+      </MyAssemblySearchPaths>
+
+	</PropertyGroup>
+
+	<ItemGroup>
+
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.CommMgr.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.DAL.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.StateMachine.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.StateServer.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.AppException.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.AppSvrBase.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.CacheMgr.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.ClientContext.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.Crypto.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.Helper.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.Helper.Object.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.Security.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.Security.Object.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.Setup.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.QA.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.QA.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Setup.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.BatchUpdate.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Home.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.Home.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.Personnel.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.History.dll"/>
+	  <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.History.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.BI.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.BI.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.FRPersonnel.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.FRPersonnel.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.CRM.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.CRM.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Schedule.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.LicenseChk.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.WebTemplate.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.WinClientPrint.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.Objects.PDFMgr.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.PDFMgr.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.KPIWebControls.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Personnel.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.Personnel.dll"/>
+   
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\Microsoft.ApplicationBlocks.Cache.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\Microsoft.ApplicationBlocks.Data.dll"/>
+
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Activity.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Activity.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.GEO.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.GEO.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Names.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Names.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.FireStatic.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.FireStatic.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Billing.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Billing.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Helper.dll"/> 
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.WebControls.dll"/>   
+
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.CAD.dll"/>      
+
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.FireRecords.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Object.FireRecords.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Inspection.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Object.Inspection.dll"/>
+
+    <Packaging Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\KGIS\KPI.KGIS.Object.KGISInterface.dll"/>
+
+    <Packaging Include="$(MSBuildProjectDirectory)\..\DevBin\Gurock.SmartInspect.DebugTrace.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\DevBin\Gurock.SmartInspect.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\DevBin\Gurock.SmartInspect.LinqToSql.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\DevBin\GenuineChannels.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\DevBin\LogicNP.CryptoLicensing.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\DevBin\ICSharpCode.SharpZipLib.dll"/>
+    <Packaging Include="$(MSBuildProjectDirectory)\..\DevBin\Newtonsoft.Json.dll"/>
+
+    
+    <Packaging Include="$(DeployFolder)\Phoenix.FireWS.dll"/>
+
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\KGIS\KPI.KGIS.Object.KGISInterface.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Activity.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Activity.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.GEO.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.GEO.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Names.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Names.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.FireStatic.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.FireStatic.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Billing.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Billing.dll"/>
+
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.CAD.dll"/>
+
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.FireRecords.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Object.FireRecords.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Inspection.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Object.Inspection.dll"/>
+
+    <Webfiles Include="$(MSBuildProjectDirectory)\FireWS\FireWS\**\*.asax"/>
+    <Webfiles Include="$(MSBuildProjectDirectory)\FireWS\FireWS\**\*.asmx"/>
+    <Webfiles Include="$(MSBuildProjectDirectory)\FireWS\FireWS\**\*.xml"/>
+    <Webfiles Include="$(MSBuildProjectDirectory)\FireWS\FireWS\**\*.xslt"/>
+    <Webfiles Include="$(MSBuildProjectDirectory)\FireWS\FireWS\**\*.xsd"/>
+    <Webfiles Include="$(MSBuildProjectDirectory)\FireWS\FireWS\Web.Sample.config"/>
+    <Webfiles Include="$(MSBuildProjectDirectory)\FireWS\FireWS\Web.config.bat"/>
+
+
+
+  </ItemGroup>
+	
+		
+	<ItemGroup>
+
+    	<Compile Include="$(MSBuildProjectDirectory)\FireWS\FireWS\Phoenix.FireWS.csproj" />
+
+   
+	</ItemGroup>
+	
+	<Target Name="Packaging" DependsOnTargets="CleaningTestingFolder" >
+
+    <Copy SourceFiles="@(Packaging)"
+		DestinationFolder="$(TestingFolder)\Bin"
+		ContinueOnError="true" />
+
+    <Copy SourceFiles="@(Webfiles)"
+		DestinationFolder="$(TestingFolder)\%(RecursiveDir)\"
+		ContinueOnError="true" />
+
+
+	</Target>
+
+  <Target Name="CleaningTestingFolder" DependsOnTargets="PhoenixFireWebServiceBuild">
+    <RemoveDir Directories="$(TestingFolder)" ContinueOnError="true"/>
+    <Message Importance="high" Text="CleaningTestingFolder"/>
+  </Target>
+		
+	<Target Name="PhoenixFireWebServiceBuild" DependsOnTargets="CopyReferences" >
+			<Message Importance="high" Text="Starting PhoenixFireWebService Build"/>
+			<MSBuild Projects="@(Compile)" Properties="BuildingInsideVisualStudio=True;AssemblySearchPaths=$(MyAssemblySearchPaths);OutputPath=$(DeployFolder)\;PostBuildEvent=;" ContinueOnError="false" />
+			<Message Importance="high" Text="Done with PhoenixFireWebService Build"/>
+	</Target>
+
+  <Target Name="CopyReferences" DependsOnTargets="CleaningBinaries">
+    <Copy SourceFiles="@(CopyReferences)"
+			  DestinationFolder="$(DeployFolder)\"
+			  ContinueOnError="true" />
+  </Target>
+
+
+  <Target Name="CleaningBinaries">
+		<RemoveDir Directories="$(DeployFolder)\" />
+    <Message Importance="high" Text="CleaningBinaries"/>
+	</Target>
+	
+	
+</Project>

@@ -1,0 +1,642 @@
+<Project DefaultTarget="ReplacefilesAfterCustomtask" ToolsVersion="4.0.30319" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+			<DeployFolder>$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire</DeployFolder>
+			<Testing>$(MSBuildProjectDirectory)\..\Deployment\Testing\PhoenixFire</Testing>
+      <BuildSuccessful>$(MSBuildProjectDirectory)\..\Deployment\Binaries\BuildSuccessful</BuildSuccessful>
+			<MyAssemblySearchPaths>
+        $(DeployFolder)\;
+        $(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\;
+        $(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\;
+        $(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\;
+        $(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\;
+        $(MSBuildProjectDirectory)\..\DevBin\;
+        $(MSBuildProjectDirectory)\..\DevBin\Infragistics v 14.1\;
+        $(MSBuildToolsPath);
+        $(MSBuildToolsPath)\WPF;
+        {GAC};
+        $(AssemblySearchPaths)
+      </MyAssemblySearchPaths>
+			
+	</PropertyGroup>
+	
+	<UsingTask TaskName="PhoenixASPAssemblyMapper.AspxAscxFileMapper"
+		   AssemblyFile="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Tools\PhoenixASPAssemblyMapper.dll"/>
+	
+	<ItemGroup>
+
+		<Compile Include="$(MSBuildProjectDirectory)\..\PhoenixFire\PhoenixFireBuilder.proj"/>
+		
+	</ItemGroup>
+
+
+	<ItemGroup>
+
+		<CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\*.dll"/>
+		<CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\*.dll"/>
+		
+	</ItemGroup>
+
+	<ItemGroup>
+
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\DocumentFormat.OpenXml.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\SpreadsheetLight.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Infragistics45.WebUI.*.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Infragistics45.Web.*.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Infragistics v 14.1\Infragistics4.Documents.Excel.*.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Infragistics v 14.1\Infragistics4.Shared.*.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\DynamicPDF.NETFramework40.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\CrystalDecisions.*.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\AxInterop.GriauleAfisXLib.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\AxInterop.IQEYELib.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\AxInterop.MapPoint.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\AxInterop.SHDocVw.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\AxInterop.SPD5XLib.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\ceTe.DynamicPDF.*.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Chestysoft.csNetDownload.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\EasyListBox.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\ExcelPackage.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\FirebirdSql.Data.Firebird.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\FredCK.FCKeditor.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\FreeTextBox.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\GenuineChannels.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Gibraltar.Agent.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Gibraltar.Agent.xml"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Gibraltar.Packager.exe"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Gibraltar.Packager.exe.config"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Gibraltar.Agent.Log4Net.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Gibraltar.Agent.Web.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\IBM.Data.Informix.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\ICSharpCode.SharpZipLib.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Interop.IQEYELib.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Interop.MapPoint.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Interop.SHDocVw.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Interop.SPD5XLib.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Interop.WIALib.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Interop.VBIDE.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Interop.GriauleAfisXLib.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Newtonsoft.Json.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\itextsharp.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Neodynamic.WebControls.BarcodeProfessional.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Northwoods.GoWeb.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Northwoods.GoWeb.Instruments.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Northwoods.GoWeb.Layout.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Northwoods.GoWeb.Svg.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Northwoods.GoWeb.Xml.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\RadEditor.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\RadSpell.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\RadUpload.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\schedule.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Xceed.Compression.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Xceed.Compression.Formats.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Xceed.FileSystem.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Xceed.Ftp.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Xceed.GZip.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Xceed.Zip.dll"/>
+<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\XmlPrime.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\ZipLib.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Web.Design.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Web.UI.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Web.UI.Skins.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Microsoft.Practices.*.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\WS.Application.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\WS.Framework.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\WS.Handler.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\ceTe.DynamicPDF.35.dll"/>
+   
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Gurock.SmartInspect.DebugTrace.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Gurock.SmartInspect.DebugTrace.xml"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Gurock.SmartInspect.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Gurock.SmartInspect.LinqToSql.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Gurock.SmartInspect.LinqToSql.xml"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Gurock.SmartInspect.xml"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\LogicNP.CryptoLicensing.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\AjaxControlToolkit.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\AjaxMin.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\SLVisifire.Charts.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\FJ.Core.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Hyland.Types.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Hyland.Unity.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\DynamicPDF.Generator.Developer.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\DynamicPDF.Merger.Developer.dll"/>
+    
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\InfragisticsSL4.Controls.Grids.XamPivotGrid.*.*.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\InfragisticsSL4.Controls.Menus.XamTree.*.*.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\InfragisticsSL4.DragDrop.*.*.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\InfragisticsSL4.Olap.*.*.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\InfragisticsSL4.Olap.Xmla.*.*.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\InfragisticsSL4.*.*.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\FJ.Core.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\SLVisifire.Charts.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\System.Windows.Controls.Data.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\System.Windows.Controls.Data.Input.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\System.Windows.Controls.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\System.Windows.Controls.Toolkit.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\BI\System.Windows.Data.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\DevBin\mscorlib.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.RadUploadHandler.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Controls.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Controls.ImageEditor.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Themes.Expression_Dark.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Themes.Metro.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Controls.Chart.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Controls.Charting.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Controls.DataServices.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Controls.DataVisualization.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Controls.DomainServices.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Controls.GridView.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Controls.Input.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Controls.Navigation.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Data.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Documents.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Documents.FormatProviders.Html.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Documents.Proofing.DataGrid.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Documents.Proofing.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Documents.Flow.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Documents.Core.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Telerik.Windows.Zip.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\ESRI\ESRI.ArcGIS.Client.Behaviors.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\ESRI\ESRI.ArcGIS.Client.Bing.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\ESRI\ESRI.ArcGIS.Client.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\ESRI\ESRI.ArcGIS.Client.Toolkit.DataSources.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\ESRI\ESRI.ArcGIS.Client.Toolkit.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\ESRI\ESRI.ArcGIS.Client.WebMap.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Google.GData.AccessControl.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Google.GData.Calendar.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Google.GData.Client.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Google.GData.Extensions.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Microsoft.SqlServer.Dts.Design.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Microsoft.SqlServer.DTSPipelineWrap.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\GotDotNet.Exslt.dll"/>
+
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Microsoft.SQLServer.ManagedDTS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Microsoft.AnalysisServices.AdomdClient.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Microsoft.SharePoint.Client.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\DevBin\Microsoft.SharePoint.Client.Runtime.dll"/>
+
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.BatchUpdate.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.CRM.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.FRPersonnel.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.History.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Home.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Inventory.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.BatchUpdate.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.CRM.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.FRPersonnel.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.History.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.Home.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.Inventory.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.JobServer.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.QA.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.Schedule.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.Setup.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.QA.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Schedule.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Setup.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.FrameworkWeb.BatchUpdate.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.FrameworkWeb.CRM.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.FrameworkWeb.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.FrameworkWeb.FRPersonnel.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.FrameworkWeb.Inventory.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.FrameworkWeb.Schedule.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.FrameworkWeb.UserControls.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.AppException.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.AppSvrBase.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.CacheMgr.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.ClientContext.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.CommMgr.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.Crypto.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.DAL.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.FTPClient.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.Helper.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.Helper.Object.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.KPIMap.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.KPIWebControls.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.LicenseChk.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.Objects.PDFMgr.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.PDFMgr.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.Security.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.Security.Object.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.StateMachine.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.StateServer.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.WebTemplate.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.WinClientPrint.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Global.PnxDashboardControls.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Transcription.Object.XenaInterface.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\MemoryMappedFileStream.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\Microsoft.ApplicationBlocks.Cache.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\Microsoft.ApplicationBlocks.Data.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\Pnx.Global.Crystal.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\SerialCommunication.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\SmartThreadPool.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\blowery.Web.HttpCompress.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\Flesk.Accelerator.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\Flesk.ViewState.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\HTMLEditorControl.dll"/>
+	  <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.BI.dll"/>
+	  <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.BI.dll"/>
+	  <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\BIWeb.dll"/>
+   
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Personnel.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.Framework.Object.Personnel.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.FrameworkWeb.Personnel.dll"/>
+
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.Attachment.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.ImageEditor.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.BI.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.Bing.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.Esri.dll"/>
+
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.KGIS.Object.KGISInterface.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.FireStatic.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.GEO.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Helper.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Inventory.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.MgmtReports.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Names.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Billing.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.FireStatic.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.GEO.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Inventory.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.MgmtReports.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Names.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Static.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Vehicle.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Billing.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Static.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Vehicle.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.WebControls.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Release.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.FireStatic.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.GEO.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.Inventory.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.Names.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.Static.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.Vehicle.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.Billing.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.MgmtReports.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Activity.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Activity.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.Activity.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Conversion.Common.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Demo.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.Demo.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\Demo.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.DetailWork.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.DetailWork.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.DetailWork.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.Object.HelpDesk.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.HelpDesk.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.HelpDesk.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PNX.Object.Employment.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PNX.Employment.dll"/>
+		<Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PNX.Web.Employment.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\KPI.Phoenix.SchemaTronValidator.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\PhoenixWeb.CRM.dll"/> 
+
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.EMS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.FireRecords.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Inspection.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.NFIRS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Evidence.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Object.EMS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Object.FireRecords.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Object.Inspection.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Object.NFIRS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Object.Evidence.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.PhoenixWeb.EMS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.PhoenixWeb.FireRecords.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.PhoenixWeb.Inspection.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.PhoenixWeb.NFIRS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\PhoenixWeb.Evidence.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\PhoenixWeb.FireCCP.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.Object.FireInvestigation.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.Phoenix.FireInvestigation.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\KPI.PhoenixWeb.FireInvestigation.dll"/>
+
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Booking.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.Booking.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Court.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.Court.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.NIBRS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.NIBRS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.Records.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Records.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\PhoenixWeb.Records.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.Property.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Property.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\PhoenixWeb.Property.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.Traffic.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Traffic.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\PhoenixWeb.Traffic.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Alarms.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.Alarms.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\PhoenixWeb.Alarms.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.NCIC.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.NCIC.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.ReportEntry.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.ReportEntry.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.SWISS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.SWISS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.CAD.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.CAD.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\PhoenixWeb.CAD.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.CORS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.CORS.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\PNX.FrameworkWeb.Scheduler.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\PNX.Framework.Scheduler.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\PNX.Framework.Object.Scheduler.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.Alarms2018.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Alarms2018.dll"/>
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\PhoenixWeb.Alarm2018.dll"/>
+
+<Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.K9.dll"/>
+<Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.K9.dll"/>
+<Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\PhoenixWeb.K9.dll"/>	
+    
+    <Reference Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixCAD\KPI.Phoenix.Object.CADE911SvrInterface.dll"/>
+    
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.aspx"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.js"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.ascx"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.png"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.gif"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.jpg"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.BMP"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.ico"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.css"/>
+    <Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.ttf"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.htc"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.skin"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.html"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.mdf"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.ldf"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.xml"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.tdf"/>
+		<!--<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.txt"/>-->
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.ocx"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.cab"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.ashx"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.htm"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.pdf"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.xap"/>
+                <Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.xlsx"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.EOT"/>
+	        <Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.WOFF2"/>
+                <Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.swf"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.svg"/>
+		<Framework Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\**\*.woff"/>
+               
+
+		<Frameworkdll Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\KPI.WinTwain.dll"/>
+		<Frameworkdll Include="$(MSBuildProjectDirectory)\..\DevBin\Vintasoft.Twain.dll"/>
+		<Frameworkdll Include="$(MSBuildProjectDirectory)\..\DevBin\ceTe.DynamicPDF.35.dll"/>
+		<Frameworkdll Include="$(MSBuildProjectDirectory)\..\DevBin\DynamicPDF.Generator.Developer.dll"/>
+		<Frameworkdll Include="$(MSBuildProjectDirectory)\..\DevBin\DynamicPDF.Merger.Developer.dll"/>
+    <Frameworkdll Include="$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb\Home\PhoenixRMSClientAssistant.exe"/>
+
+
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.aspx"/>
+		<PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.js"/>
+		<PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.ascx"/>
+		<PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.png"/>
+		<PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.gif"/>
+		<PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.jpg"/>
+		<PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.BMP"/>
+		<PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.asax"/>
+		<PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.ico"/>
+		<PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.ashx"/>
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.htm"/>
+		<PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.xap"/>
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\Web.Config.bat"/>
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\Web.Sample.Config"/>
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\Images\FireRMS.ico"/>
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\IESettings.exe"/>
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.dtsx"/>
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.xls"/>
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.xlsx"/>
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.pdf"/>
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.css"/>
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\**\*.xml"/> 	
+    <PhoenixBase Include="$(MSBuildProjectDirectory)\..\Reports\Global\Reports\ExcelHeader.txt"/>
+
+		<PhoenixFire Include="$(MSBuildProjectDirectory)\..\PhoenixFire\FireWeb\**\*.aspx"/>
+		<PhoenixFire Include="$(MSBuildProjectDirectory)\..\PhoenixFire\FireWeb\**\*.js"/>
+		<PhoenixFire Include="$(MSBuildProjectDirectory)\..\PhoenixFire\FireWeb\**\*.ascx"/>
+    <PhoenixFire Include="$(MSBuildProjectDirectory)\..\PhoenixFire\FireWeb\**\*.htm"/>
+    <PhoenixFire Include="$(MSBuildProjectDirectory)\..\PhoenixFire\FireWeb\**\*.html"/>
+    <PhoenixFire Include="$(MSBuildProjectDirectory)\..\PhoenixFire\FireWeb\**\*.css"/>
+    <PhoenixFire Include="$(MSBuildProjectDirectory)\..\PhoenixFire\FireWeb\**\*.XSD"/>
+    <PhoenixFire Include="$(MSBuildProjectDirectory)\..\PhoenixFire\FireWeb\**\*.Sch"/>
+    <PhoenixFire Include="$(MSBuildProjectDirectory)\..\PhoenixFire\FireWeb\**\*.xlsx"/>
+  <PhoenixFire Include="$(MSBuildProjectDirectory)\..\PhoenixFire\FireWeb\**\*.xml"/>
+
+    <Traffic Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Traffic\**\*.aspx"/>
+    <Traffic Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Traffic\**\*.js"/>
+    <Traffic Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Traffic\**\*.ascx"/>
+    <Traffic Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Traffic\**\*.htm"/>
+
+    <Alarms Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Alarms\**\*.aspx"/>
+    <Alarms Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Alarms\**\*.js"/>
+    <Alarms Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Alarms\**\*.ascx"/>
+    <Alarms Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Alarms\**\*.htm"/>
+
+
+
+    <Alarms2018 Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Alarms2018\**\*.aspx"/>
+    <Alarms2018 Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Alarms2018\**\*.js"/>
+    <Alarms2018 Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Alarms2018\**\*.ascx"/>
+    <Alarms2018 Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Alarms2018\**\*.htm"/>
+
+    <Property Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Property\**\*.aspx"/>
+    <Property Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Property\**\*.js"/>
+    <Property Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Property\**\*.ascx"/>
+    <Property Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Property\**\*.htm"/>
+
+    <Records Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Records\**\*.aspx"/>
+    <Records Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Records\**\*.js"/>
+    <Records Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Records\**\*.ascx"/>
+    <Records Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\Records\**\*.htm"/>
+
+    <K9 Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\K9\**\*.aspx"/>
+    <K9 Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\K9\**\*.js"/>
+    <K9 Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\K9\**\*.ascx"/>
+    <K9 Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\K9\**\*.htm"/>
+
+    <CAD Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\CAD\**\*.aspx"/>
+    <CAD Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\CAD\**\*.js"/>
+    <CAD Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\CAD\*.jpg"/>
+    <CAD Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\CAD\*.png"/>
+    <CAD Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\CAD\**\*.ascx"/>
+    <CAD Include="$(MSBuildProjectDirectory)\..\PhoenixPolice\PoliceWeb\CAD\**\*.htm"/>
+    
+    <FireForms Include="$(MSBuildProjectDirectory)\..\Reports\Fire\Forms\**\*.pdf" />
+
+     <FireForms Include="$(MSBuildProjectDirectory)\..\Reports\Police\Forms\**\TrafficSummons.pdf" />
+     <FireForms Include="$(MSBuildProjectDirectory)\..\Reports\Police\Forms\**\MA By Law Violation.pdf" />
+     <FireForms Include="$(MSBuildProjectDirectory)\..\Reports\Police\Forms\State\NJ\NJTrafficNarrative.pdf" />
+     <FireForms Include="$(MSBuildProjectDirectory)\..\Reports\Police\Forms\State\NJ\TrafficSummons.pdf" />
+     <FireForms Include="$(MSBuildProjectDirectory)\..\Reports\Police\Forms\**\*\MA\By Law Violation.pdf" />
+     <FireForms Include="$(MSBuildProjectDirectory)\..\Reports\Police\Forms\**\*\MA\Massachusetts Uniform Citation.pdf" />
+     <FireForms Include="$(MSBuildProjectDirectory)\..\Reports\Police\Forms\**\*\MN\TrafficSummons Class.pdf" />
+     <FireForms Include="$(MSBuildProjectDirectory)\..\Reports\Police\Forms\**\*\MN\TrafficSummons*.pdf" />   
+
+     <FireForms Include="$(MSBuildProjectDirectory)\..\Reports\Global\Forms\**\*.pdf" />
+    <FireForms Include="$(MSBuildProjectDirectory)\..\Reports\Global\Forms\*.gif" />
+    
+    <IgCommon Include="C:\inetpub\wwwroot\aspnet_client\Infragistics\**\*.*"/>
+
+    <Replacefile Include="$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb\Names\GoWebImage.aspx"/>
+    
+    <Sample Include="$(MSBuildProjectDirectory)\..\Reports\Global\Reports\ExcelHeader.txt"/>
+
+    <XAPFiles Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.Attachment.xap"/>
+    <XAPFiles Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.ImageEditor.xap"/>
+    <XAPFiles Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.BI.xap"/>
+    <XAPFiles Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.Bing.xap"/>
+    <XAPFiles Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.Esri.xap"/>
+    <XAPFiles Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.MapAnalysis.xap"/>
+    <XAPFiles Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.WordDocEditor.xap"/>
+    <XAPFiles Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Silverlight\KPI.SL.Image.xap"/>
+
+    <Barcode Include="$(MSBuildProjectDirectory)\..\Reports\Fire\Barcode\*.*" />
+
+
+
+
+	</ItemGroup>
+
+  <Target Name="ReplacefilesAfterCustomtask" DependsOnTargets="AfterBuild">
+
+    <Copy SourceFiles="@(Replacefile)"
+      DestinationFolder="$(Testing)\Names\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+
+  </Target>
+	
+	<Target Name="AfterBuild" DependsOnTargets="Packaging">
+		<AspxAscxFileMapper
+			WebsitePath="$(MSBuildProjectDirectory)\..\Deployment\Testing\PhoenixFire"
+			ReferencePath="$(MSBuildProjectDirectory)\..\Deployment\Phoenix Reference\PhoenixFire" />
+      <MakeDir Directories="$(BuildSuccessful)\FireRMS" />
+	</Target>
+
+	<Target Name="Packaging" DependsOnTargets="CleaningTestingFolder">
+
+    <MakeDir Directories="$(Testing)\Log" />
+
+		<Copy SourceFiles="@(Reference)"
+		  DestinationFolder="$(Testing)\Bin"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />    
+        
+    <Copy SourceFiles="@(Frameworkdll)"
+		  DestinationFolder="$(Testing)\KPIFrameworkWeb\Home\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+		
+		<Copy SourceFiles="@(Framework)"
+		  DestinationFolder="$(Testing)\KPIFrameworkWeb\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+		
+		<Copy SourceFiles="@(PhoenixBase)"
+		  DestinationFolder="$(Testing)\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+		
+		<Copy SourceFiles="@(PhoenixFire)"
+		  DestinationFolder="$(Testing)\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+    
+    <Copy SourceFiles="@(Traffic)"
+		  DestinationFolder="$(Testing)\Traffic\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />   
+    
+    <Copy SourceFiles="@(Alarms)"
+		  DestinationFolder="$(Testing)\Alarms\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />  
+
+<Copy SourceFiles="@(Alarms2018)"
+		  DestinationFolder="$(Testing)\Alarms2018\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />  
+    
+    <Copy SourceFiles="@(Property)"
+		  DestinationFolder="$(Testing)\Property\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" /> 
+    
+    <Copy SourceFiles="@(Records)"
+		  DestinationFolder="$(Testing)\Records\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" /> 
+
+<Copy SourceFiles="@(K9)"
+		  DestinationFolder="$(Testing)\K9\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" /> 
+    
+    <Copy SourceFiles="@(CAD)"
+		  DestinationFolder="$(Testing)\CAD\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" /> 
+
+    <Copy SourceFiles="@(FireForms)"
+		  DestinationFolder="$(Testing)\Forms\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+    
+    <Copy SourceFiles="@(IgCommon)"
+		  DestinationFolder="$(Testing)\ig_common_store\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+ 
+    <Copy SourceFiles="@(Sample)"
+		  DestinationFolder="$(Testing)\Log\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+
+	<Copy SourceFiles="@(XAPFiles)"
+		  DestinationFolder="$(Testing)\ClientBin\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+    
+  <Copy SourceFiles="@(Barcode)"
+		  DestinationFolder="$(Testing)\Fire\Barcode\%(RecursiveDir)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+    
+  <Copy SourceFiles="$(MSBuildProjectDirectory)\..\PhoenixBase\Object\KPI.Phoenix.Release\DBVersion.xml"
+      DestinationFolder="$(Testing)\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+    
+		
+	</Target>
+
+  <Target Name="CleaningTestingFolder" DependsOnTargets="FireBuild">
+    <RemoveDir Directories="$(Testing)" ContinueOnError="true"/>
+    <Message Importance="high" Text="CleaningTestingFolder"/>
+  </Target>
+
+  
+	<Target Name="FireBuild" DependsOnTargets="CleaningBinaries">
+			<Message Importance="high" Text="Starting Framework Build"/>
+			<MSBuild Projects="@(Compile)" ContinueOnError="false" />
+			<Message Importance="high" Text="Done with Framework Build"/>
+	</Target>
+
+
+	<Target Name="CleaningBinaries">
+		<RemoveDir Directories="$(DeployFolder)" ContinueOnError="true"/>
+		<Message Importance="high" Text="CleaningBinaries"/>
+	</Target>
+
+</Project>

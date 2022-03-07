@@ -1,0 +1,65 @@
+<Project DefaultTargets="PreCompileWeb" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<Project>PhoenixFire</Project>
+		<WebFolder>FireWeb</WebFolder>
+		<FrameworkWeb>$(MSBuildProjectDirectory)\..\Framework\KPIFrameworkWeb</FrameworkWeb>
+		<PhoenixBase>$(MSBuildProjectDirectory)\..\PhoenixBase\PhoenixWeb</PhoenixBase>	
+		<Staging>$(MSBuildProjectDirectory)\..\Deployment\Staging\$(Project)</Staging>
+		<Deploy>$(MSBuildProjectDirectory)\..\Deployment\Testing\$(Project)</Deploy>
+		<Bin>$(MSBuildProjectDirectory)\..\Deployment\$(Project)\Bin</Bin>
+		<Source>$(MSBuildProjectDirectory)\$(WebFolder)</Source>	
+	</PropertyGroup>
+
+	<ItemGroup>
+		<CopyReferences Include="$(MSBuildProjectDirectory)\..\DevBin\*.dll" />
+<!--		<CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Framework\bin\*.dll"/>
+		<CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\PhoenixBase\bin\*.dll"/>
+-->		<CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\*.dll"/>
+		
+		<CopyFramework Include="$(FrameworkWeb)\**\*" />
+		<CopyProject Include="$(Source)\**\*" />
+		<CopyProject Include="$(PhoenixBase)\**\*" />
+
+		
+	</ItemGroup>
+
+
+	<Target Name="Clean">
+    <RemoveDir Directories="$(Staging)\" />
+    <RemoveDir Directories="$(Deploy)\" />
+	<RemoveDir Directories="$(Bin)\" />
+	</Target>
+
+  <Target Name="PhoenixFireAssemblyBuild" DependsOnTargets="Clean">
+    <MSBuild Projects="$(MSBuildProjectDirectory)\PhoenixFireBuild.proj" />
+  </Target>
+  
+	<Target Name="CopyToStaging" DependsOnTargets="PhoenixFireAssemblyBuild">
+
+		<Copy SourceFiles="@(CopyReferences)"
+		  DestinationFolder="$(Staging)\bin\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+		
+		<Copy SourceFiles="@(CopyProject)" 
+          DestinationFolder="$(Staging)\%(RecursiveDir)\" 
+          ContinueOnError="true" 
+          SkipUnchangedFiles="false" />
+    
+		<Copy SourceFiles="@(CopyFramework)" 
+          DestinationFolder="$(Staging)\KPIFrameworkWeb\%(RecursiveDir)\" 
+          ContinueOnError="true" 
+          SkipUnchangedFiles="false" />
+		
+
+	</Target>
+  
+  
+	<Target Name="PreCompileWeb" DependsOnTargets="CopyToStaging">
+		<AspNetCompiler VirtualPath="/" 
+                    PhysicalPath="$(Staging)\" 
+                    TargetPath="$(Deploy)\" 
+                    FixedNames="false" 
+                    Updateable="true" />
+	</Target>
+</Project>

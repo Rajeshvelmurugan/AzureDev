@@ -1,0 +1,69 @@
+<Project DefaultTarget="FireBuild" ToolsVersion="4.0.30319" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+			<DeployFolder>$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire</DeployFolder>
+			<MyAssemblySearchPaths>
+        $(DeployFolder)\;
+        $(MSBuildProjectDirectory)\..\DevBin\;
+        $(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework;
+        $(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice;
+        $(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire;
+        $(MSBuildProjectDirectory)\..\DevBin\Infragistics v 14.1\;
+        $(MSBuildToolsPath);
+        $(MSBuildToolsPath)\WPF;
+        {GAC};
+        $(AssemblySearchPaths)
+      </MyAssemblySearchPaths>
+			
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Include="Object\KPI.Phoenix.Object.FireRecords\KPI.Phoenix.Object.FireRecords.csproj" />
+		<Compile Include="Object\KPI.Phoenix.Object.Inspection\KPI.Phoenix.Object.Inspection.csproj" />
+		<Compile Include="Object\KPI.Phoenix.Object.NFIRS\KPI.Phoenix.Object.NFIRS.csproj" />
+		<Compile Include="Object\KPI.Phoenix.Object.EMS\KPI.Phoenix.Object.EMS.csproj" />
+    <Compile Include="Object\KPI.Phoenix.Object.Evidence\KPI.Phoenix.Object.Evidence.csproj" />
+    
+    <Compile Include="Component\KPI.Phoenix.FireRecords\KPI.Phoenix.FireRecords.csproj" />
+    <Compile Include="Component\KPI.Phoenix.Inspection\KPI.Phoenix.Inspection.csproj" />
+    <Compile Include="Component\KPI.Phoenix.NFIRS\KPI.Phoenix.NFIRS.csproj" />
+    <Compile Include="Component\KPI.Phoenix.EMS\KPI.Phoenix.EMS.csproj" />
+    <Compile Include="Component\KPI.Phoenix.Evidence\KPI.Phoenix.Evidence.csproj" />
+    
+    <Compile Include="Object\KPI.Phoenix.Object.FireInvestigation\KPI.Phoenix.Object.FireInvestigation.csproj" />
+    <Compile Include="Component\KPI.Phoenix.FireInvestigation\KPI.Phoenix.FireInvestigation.csproj" />
+    
+		<Compile Include="FireWeb\EMS\PhoenixWeb.EMS.csproj" />
+    <Compile Include="FireWeb\NFIRS\PhoenixWeb.NFIRS.csproj" />
+		<Compile Include="FireWeb\FireRecords\PhoenixWeb.FireRecords.csproj" />
+		<Compile Include="FireWeb\Inspection\PhoenixWeb.Inspection.csproj" />		
+    <Compile Include="FireWeb\Evidence\PhoenixWeb.Evidence.csproj" />
+    <Compile Include="FireWeb\FireCCP\PhoenixWeb.FireCCP.csproj" />
+    <Compile Include="FireWeb\FireInvestigation\PhoenixWeb.FireInvestigation.csproj" />
+
+  </ItemGroup>
+
+	<ItemGroup>
+
+		<CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\*.dll"/>
+		<CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\*.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Object.Alarms.dll"/>
+    <CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice\KPI.Phoenix.Alarms.dll"/>
+
+	</ItemGroup>
+	
+	<Target Name="FireBuild" DependsOnTargets="CopyToStaging">
+		<Message Importance="high" Text="Starting Framework Build"/>
+		<MSBuild Projects="@(Compile)" Targets="Clean;Build" Properties="BuildingInsideVisualStudio=True;AssemblySearchPaths=$(MyAssemblySearchPaths);OutputPath=$(DeployFolder)\;PostBuildEvent=;" ContinueOnError="false" />
+		<Message Importance="high" Text="Done with Framework Build"/>
+	</Target>
+	
+	
+	<Target Name="CopyToStaging">
+
+		<Copy SourceFiles="@(CopyReferences)"
+		  DestinationFolder="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+
+	</Target>
+
+</Project>

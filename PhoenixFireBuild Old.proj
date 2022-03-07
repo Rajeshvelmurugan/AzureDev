@@ -1,0 +1,51 @@
+<Project DefaultTarget="FireBuild" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+			<DeployFolder>$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire</DeployFolder>
+			<MyAssemblySearchPaths>
+				$(DeployFolder)\;
+				$(MSBuildProjectDirectory)\..\DevBin\;
+				$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework;
+				$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixPolice;
+				$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire;
+				{GAC};
+				$(AssemblySearchPaths)
+			</MyAssemblySearchPaths>
+			
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Include="Object\KPI.Phoenix.Object.FireRecords\KPI.Phoenix.Object.FireRecords.proj" />
+		<Compile Include="Object\KPI.Phoenix.Object.Inspection\KPI.Phoenix.Object.Inspection.proj" />
+		<Compile Include="Object\KPI.Phoenix.Object.NFIRS\KPI.Phoenix.Object.NFIRS.proj" />
+		<Compile Include="Object\KPI.Phoenix.Object.EMS\KPI.Phoenix.Object.EMS.proj" />
+
+		<Compile Include="Component\KPI.Phoenix.FireRecords\KPI.Phoenix.FireRecords.proj" />
+		<Compile Include="Component\KPI.Phoenix.Inspection\KPI.Phoenix.Inspection.proj" />
+		<Compile Include="Component\KPI.Phoenix.NFIRS\KPI.Phoenix.NFIRS.proj" />
+		<Compile Include="Component\KPI.Phoenix.EMS\KPI.Phoenix.EMS.proj" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+
+		<CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\Framework\*.dll"/>
+		<CopyReferences Include="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixBase\*.dll"/>
+
+	</ItemGroup>
+	
+	<Target Name="FireBuild" DependsOnTargets="CopyToStaging">
+		<Message Importance="high" Text="Starting Framework Build"/>
+		<MSBuild Projects="@(Compile)" Targets="Clean;Build" Properties="BuildingInsideVisualStudio=True;AssemblySearchPaths=$(MyAssemblySearchPaths);OutputPath=$(DeployFolder)\;PostBuildEvent=;" />
+		<Message Importance="high" Text="Done with Framework Build"/>
+	</Target>
+	
+	
+	<Target Name="CopyToStaging">
+
+		<Copy SourceFiles="@(CopyReferences)"
+		  DestinationFolder="$(MSBuildProjectDirectory)\..\Deployment\Binaries\PhoenixFire\"
+		  ContinueOnError="true"
+		  SkipUnchangedFiles="false" />
+
+	</Target>
+
+</Project>
